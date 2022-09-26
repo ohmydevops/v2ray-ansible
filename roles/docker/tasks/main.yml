@@ -7,8 +7,21 @@
     state: latest
     update_cache: no
 
-- name: Install docker compose plugin
+- name: Install docker compose
   apt:
     name: docker-compose
     state: latest
     update_cache: no
+
+- name: Add ubuntu user to docker group
+  ansible.builtin.user:
+    name: ubuntu
+    groups: docker
+    append: yes
+
+- name: Copy docker daemon.json
+  ansible.builtin.copy:
+    src: files/daemon.json
+    dest: /etc/docker/daemon.json
+  notify:
+    - Restart docker engine
