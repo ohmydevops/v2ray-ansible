@@ -1,0 +1,20 @@
+---
+# tasks file for roles/hardening
+
+- name: Set timezone to Asia/Tehran
+  timezone:
+    name: Asia/Tehran
+
+- name: Allow ssh ports
+  community.general.ufw:
+    rule: allow
+    port: 22
+
+- name: Set UFW logging
+  community.general.ufw:
+    logging: 'on'    
+
+- name: Reject everything and enable UFW
+  community.general.ufw:
+    state: enabled
+    policy: deny

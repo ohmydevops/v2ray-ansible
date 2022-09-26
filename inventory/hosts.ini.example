@@ -1,0 +1,11 @@
+[v2ray]
+x.x.x.x
+y.y.y.y
+
+[v2ray:vars]
+ansible_python_interpreter=/usr/bin/python3
+ansible_connection=ssh
+ansible_user=ubuntu
+
+[local]
+127.0.0.1 ansible_connection=local

@@ -1,0 +1,6 @@
+---
+# handlers file for roles/hardening
+
+- name: Reload UFW
+  community.general.ufw:
+    state: reloaded

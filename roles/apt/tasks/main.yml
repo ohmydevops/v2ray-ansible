@@ -1,0 +1,6 @@
+---
+# tasks file for roles/apt
+
+- name: Update apt repositories
+  apt:
+    update_cache: yes

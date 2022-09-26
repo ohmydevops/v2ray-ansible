@@ -1,0 +1,10 @@
+---
+
+- name: Deploy v2ray bridge node
+  gather_facts: no
+  hosts: v2ray
+  become: yes
+  roles:
+    - apt
+    - hardening
+    - docker
