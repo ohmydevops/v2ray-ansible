@@ -1,11 +1,21 @@
-[v2ray]
+[v2ray_bridge]
 x.x.x.x
 y.y.y.y
 
-[v2ray:vars]
+[v2ray_bridge:vars]
 ansible_python_interpreter=/usr/bin/python3
 ansible_connection=ssh
 ansible_user=ubuntu
 
-[local]
-127.0.0.1 ansible_connection=local
+
+
+
+
+[v2ray_upstream]
+x.x.x.x
+y.y.y.y
+
+[v2ray_upstream:vars]
+ansible_python_interpreter=/usr/bin/python3
+ansible_connection=ssh
+ansible_user=ubuntu

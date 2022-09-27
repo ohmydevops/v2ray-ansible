@@ -1,0 +1,32 @@
+---
+
+- name: Config v2ray node
+  gather_facts: no
+  hosts: all
+  become: yes
+  vars_files:
+    - ./vars.yml  
+  roles:
+    - apt
+    - hardening
+    - docker
+    - clone
+    - config_v2ray
+
+- name: Config v2ray bridge
+  gather_facts: no
+  hosts: v2ray_bridge
+  become: yes
+  vars_files:
+    - ./vars.yml  
+  roles:
+    - run_v2ray_bridge
+
+- name: Config v2ray upstream
+  gather_facts: no
+  hosts: v2ray_upstream
+  become: yes
+  vars_files:
+    - ./vars.yml  
+  roles:
+    - run_v2ray_upstream

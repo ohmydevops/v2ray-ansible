@@ -1,0 +1,5 @@
+---
+# tasks file for roles/run_v2ray_upstream
+
+- name: Run upstream node
+  ansible.builtin.shell: docker-compose -f {{base_compose_path}}/v2ray_upstream_server/docker-compose.yml up -d 

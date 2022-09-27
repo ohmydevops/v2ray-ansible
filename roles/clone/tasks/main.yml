@@ -1,0 +1,10 @@
+---
+# tasks file for roles/clone
+
+- name: Unzip folder
+  ansible.builtin.unarchive:
+    src: "https://github.com/miladrahimi/v2ray-docker-compose/archive/refs/heads/master.zip"
+    dest: "/home/ubuntu/"
+    remote_src: yes
+    owner: ubuntu
+    group: ubuntu

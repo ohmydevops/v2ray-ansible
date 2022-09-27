@@ -1,0 +1,11 @@
+---
+
+http_user: mahsa_amini
+http_password: "XXX"
+shadow_password: "XXX"
+bridge_uuid: "XXX"
+upstream_ip: "XXX"
+upstream_uuid: "XXX"
+bridge_config_path: "/home/ubuntu/v2ray-docker-compose-master/v2ray_bridge_server/config/config.json"
+upstream_config_path: "/home/ubuntu/v2ray-docker-compose-master/v2ray_upstream_server/config/config.json"
+base_compose_path: "/home/ubuntu/v2ray-docker-compose-master"

@@ -1,0 +1,22 @@
+---
+# tasks file for roles/config_v2ray
+- name: Update v2ray bridge (http username)
+  ansible.builtin.shell: cat {{bridge_config_path}} | jq --arg http_user "{{http_user}}" '.inbounds[0].settings.accounts[0].user = $http_user' | sponge {{bridge_config_path}}
+
+- name: Update v2ray bridge (http password)
+  ansible.builtin.shell: cat {{bridge_config_path}} | jq --arg http_password "{{http_password}}" '.inbounds[0].settings.accounts[0].pass = $http_password' | sponge {{bridge_config_path}}
+
+- name: Update v2ray bridge (shadow password)
+  ansible.builtin.shell: cat {{bridge_config_path}} | jq --arg shadow_password "{{shadow_password}}" '.inbounds[1].settings.password = $shadow_password' | sponge {{bridge_config_path}}
+
+- name: Update v2ray bridge (bridge uuid)
+  ansible.builtin.shell: cat {{bridge_config_path}} | jq --arg bridge_uuid "{{bridge_uuid}}" '.inbounds[2].settings.clients[0].id = $bridge_uuid' | sponge {{bridge_config_path}}    
+
+- name: Update v2ray bridge (upstream ip)
+  ansible.builtin.shell: cat {{bridge_config_path}} | jq --arg upstream_ip "{{upstream_ip}}" '.outbound.settings.vnext[0].address = $upstream_ip' | sponge {{bridge_config_path}}    
+
+- name: Update v2ray bridge (upstream_uuid)
+  ansible.builtin.shell: cat {{bridge_config_path}} | jq --arg upstream_uuid "{{upstream_uuid}}" '.outbound.settings.vnext[0].users[0].id = $upstream_uuid' | sponge {{bridge_config_path}}        
+
+- name: Update v2ray upstream (upstream_uuid)
+  ansible.builtin.shell: cat {{upstream_config_path}} | jq --arg upstream_uuid "{{upstream_uuid}}" '.inbound.settings.clients[0].id = $upstream_uuid' | sponge {{upstream_config_path}}

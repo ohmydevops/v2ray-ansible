@@ -1,6 +1,25 @@
 ---
 # tasks file for roles/apt
 
+- name: Fix host entry
+  ansible.builtin.shell: echo $(hostname -I | cut -d\  -f1) $(hostname) | sudo tee -a /etc/hosts
+
+  
 - name: Update apt repositories
   apt:
     update_cache: yes
+
+- name: Install Unzip
+  ansible.builtin.apt:
+    name: unzip
+    state: present
+
+- name: Install jq
+  ansible.builtin.apt:
+    name: jq
+    state: present
+
+- name: Install sponge
+  ansible.builtin.apt:
+    name: moreutils
+    state: present    
