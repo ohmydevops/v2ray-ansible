@@ -14,3 +14,9 @@
 
 - name: Update v2ray upstream (upstream_uuid)
   ansible.builtin.shell: cat {{upstream_config_path}} | jq --arg upstream_uuid "{{upstream_uuid}}" '.inbound.settings.clients[0].id = $upstream_uuid' | sponge {{upstream_config_path}}
+
+- name: Disable logs (upstream)
+  ansible.builtin.shell: cat {{upstream_config_path}} | jq '.log.access =  ""'| sponge {{upstream_config_path}}
+
+- name: Disable logs (bridge)
+  ansible.builtin.shell: cat {{bridge_config_path}} | jq '.log.access =  ""'| sponge {{bridge_config_path}}  
