@@ -20,3 +20,6 @@
 
 - name: Disable logs (bridge)
   ansible.builtin.shell: cat {{bridge_config_path}} | jq '.log.access =  ""'| sponge {{bridge_config_path}}  
+
+- name: Disable direct routing in *.ir domains
+  ansible.builtin.shell: cat {{bridge_config_path}} | jq '.routing.settings =  {}'| sponge {{bridge_config_path}}    
