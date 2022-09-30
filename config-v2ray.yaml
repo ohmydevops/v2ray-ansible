@@ -9,7 +9,7 @@
   roles:
     - apt
     - hardening
-    - docker
+    - install_docker
     - clone
     - config_v2ray
 
