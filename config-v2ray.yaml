@@ -1,7 +1,7 @@
 ---
 
 - name: Config v2ray node
-  gather_facts: no
+  gather_facts: yes
   hosts: all
   become: yes
   vars_files:
@@ -14,7 +14,7 @@
     - config_v2ray
 
 - name: Config v2ray bridge
-  gather_facts: no
+  gather_facts: yes
   hosts: v2ray_bridge
   become: yes
   vars_files:
@@ -23,7 +23,7 @@
     - run_v2ray_bridge
 
 - name: Config v2ray upstream
-  gather_facts: no
+  gather_facts: yes
   hosts: v2ray_upstream
   become: yes
   vars_files:

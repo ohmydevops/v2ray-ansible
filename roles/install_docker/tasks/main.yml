@@ -15,7 +15,7 @@
 
 - name: Add running user to docker group
   ansible.builtin.user:
-    name: "{{ lookup('ansible.builtin.env', 'USER') }}"
+    name: "{{ ansible_env.USER }}"
     groups: docker
     append: yes
 
