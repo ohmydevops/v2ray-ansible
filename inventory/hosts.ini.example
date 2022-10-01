@@ -3,7 +3,6 @@ x.x.x.x
 y.y.y.y
 
 [v2ray_bridge:vars]
-ansible_python_interpreter=/usr/bin/python3
 ansible_connection=ssh
 ansible_user=ubuntu
 
@@ -16,6 +15,5 @@ x.x.x.x
 y.y.y.y
 
 [v2ray_upstream:vars]
-ansible_python_interpreter=/usr/bin/python3
 ansible_connection=ssh
-ansible_user=ubuntu
+ansible_user=root
