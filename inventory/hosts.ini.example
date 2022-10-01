@@ -4,6 +4,7 @@ y.y.y.y
 
 [v2ray_bridge:vars]
 ansible_connection=ssh
+ansible_port=22
 ansible_user=ubuntu
 
 
@@ -16,4 +17,5 @@ y.y.y.y
 
 [v2ray_upstream:vars]
 ansible_connection=ssh
+ansible_port=22
 ansible_user=root
