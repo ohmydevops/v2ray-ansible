@@ -4,7 +4,7 @@
 - name: Unzip folder
   ansible.builtin.unarchive:
     src: "https://github.com/miladrahimi/v2ray-docker-compose/archive/refs/heads/master.zip"
-    dest: "/home/ubuntu/"
+    dest: "/home/{{ lookup('ansible.builtin.env', 'USER') }}/"
     remote_src: yes
-    owner: ubuntu
-    group: ubuntu
+    owner: "{{ lookup('ansible.builtin.env', 'USER') }}"
+    group: "{{ lookup('ansible.builtin.env', 'USER') }}"

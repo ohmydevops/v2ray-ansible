@@ -13,9 +13,9 @@
     state: latest
     update_cache: no
 
-- name: Add ubuntu user to docker group
+- name: Add running user to docker group
   ansible.builtin.user:
-    name: ubuntu
+    name: "{{ lookup('ansible.builtin.env', 'USER') }}"
     groups: docker
     append: yes
 
