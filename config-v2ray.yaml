@@ -1,22 +1,28 @@
 ---
-
-- name: Config v2ray node
+- name: config
   gather_facts: yes
   hosts: all
-  become: yes
+
+- name: Config requirements
+  gather_facts: yes
+  hosts: all
   vars_files:
     - ./vars.yml  
   roles:
-    - apt
-    - hardening
-    - install_docker
-    - clone
-    - config_v2ray
+    - role: apt
+      become: yes
+    - role: hardening
+      become: no
+    - role: install_docker
+      become: yes
+    - role: clone
+      become: no
+    - role: config_v2ray
+      become: no
 
 - name: Config v2ray bridge
   gather_facts: yes
   hosts: v2ray_bridge
-  become: yes
   vars_files:
     - ./vars.yml  
   roles:
@@ -25,7 +31,6 @@
 - name: Config v2ray upstream
   gather_facts: yes
   hosts: v2ray_upstream
-  become: yes
   vars_files:
     - ./vars.yml  
   roles:

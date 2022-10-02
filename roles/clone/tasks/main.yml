@@ -6,5 +6,5 @@
     src: "https://github.com/miladrahimi/v2ray-docker-compose/archive/refs/heads/master.zip"
     remote_src: yes
     dest: "/home/{{ ansible_user }}"
-    owner: "{{ ansible_user }}"
-    group: "{{ ansible_user  }}"
+    owner: "{{ ansible_env.USER }}"
+    group: "{{ ansible_env.USER }}"
