@@ -2,7 +2,7 @@
 # tasks file for roles/run_v2ray_bridge
 
 - name: Run bridge node
-  ansible.builtin.shell: docker-compose -f {{base_compose_path}}/v2ray_bridge_server/docker-compose.yml up -d
+  ansible.builtin.shell: docker-compose -f {{ bridge_dockercompose_path }} up -d
 
 - name: Restart docker compose
-  ansible.builtin.shell: docker-compose -f {{base_compose_path}}/v2ray_bridge_server/docker-compose.yml restart
+  ansible.builtin.shell: docker-compose -f {{ bridge_dockercompose_path }} restart

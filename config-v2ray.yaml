@@ -1,7 +1,4 @@
 ---
-- name: config
-  gather_facts: yes
-  hosts: all
 
 - name: Config requirements
   gather_facts: yes

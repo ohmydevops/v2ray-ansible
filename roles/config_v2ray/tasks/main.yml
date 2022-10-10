@@ -1,10 +1,10 @@
 ---
 # tasks file for roles/config_v2ray
 - name: Update v2ray bridge (shadow password)
-  ansible.builtin.shell: cat {{bridge_config_path}} | jq --arg shadow_password "{{shadow_password}}" '.inbounds[0].settings.password = $shadow_password' | sponge {{bridge_config_path}}
+  ansible.builtin.shell: cat {{bridge_config_path}} | jq --arg shadow_password "{{shadow_password}}" '.inbounds[1].settings.password = $shadow_password' | sponge {{bridge_config_path}}
 
 - name: Update v2ray bridge (bridge uuid)
-  ansible.builtin.shell: cat {{bridge_config_path}} | jq --arg bridge_uuid "{{bridge_uuid}}" '.inbounds[1].settings.clients[0].id = $bridge_uuid' | sponge {{bridge_config_path}}    
+  ansible.builtin.shell: cat {{bridge_config_path}} | jq --arg bridge_uuid "{{bridge_uuid}}" '.inbounds[2].settings.clients[0].id = $bridge_uuid' | sponge {{bridge_config_path}}    
 
 - name: Update v2ray bridge (upstream ip)
   ansible.builtin.shell: cat {{bridge_config_path}} | jq --arg upstream_ip "{{upstream_ip}}" '.outbound.settings.vnext[0].address = $upstream_ip' | sponge {{bridge_config_path}}    
@@ -19,7 +19,7 @@
   ansible.builtin.shell: cat {{upstream_config_path}} | jq '.log.access =  ""'| sponge {{upstream_config_path}}
 
 - name: Disable logs (bridge)
-  ansible.builtin.shell: cat {{bridge_config_path}} | jq '.log.access =  ""'| sponge {{bridge_config_path}}  
+  ansible.builtin.shell: cat {{bridge_config_path}} | jq '.log.access =  ""'| sponge {{bridge_config_path}}
 
-- name: Disable direct routing in *.ir domains
-  ansible.builtin.shell: cat {{bridge_config_path}} | jq '.routing.settings =  {}'| sponge {{bridge_config_path}}    
+# - name: Disable direct routing in *.ir domains
+#   ansible.builtin.shell: cat {{bridge_config_path}} | jq '.routing.settings =  {}'| sponge {{bridge_config_path}}

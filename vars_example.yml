@@ -2,8 +2,10 @@
 
 shadow_password: "XXX"
 bridge_uuid: "XXX"
-upstream_ip: "XXX"
 upstream_uuid: "XXX"
-bridge_config_path: "{{ ansible_env.HOME }}/v2ray-docker-compose-master/v2ray_bridge_server/config/config.json"
-upstream_config_path: "{{ ansible_env.HOME }}/v2ray-docker-compose-master/v2ray_upstream_server/config/config.json"
+upstream_ip: "XXX"
+bridge_config_path: "{{ ansible_env.HOME }}/v2ray-docker-compose-master/v2ray-bridge-server/config/config.json"
+upstream_config_path: "{{ ansible_env.HOME }}/v2ray-docker-compose-master/v2ray-upstream-server/config/config.json"
+upstream_dockercompose_path: "{{ ansible_env.HOME }}/v2ray-docker-compose-master/v2ray-upstream-server/docker-compose.yml"
+bridge_dockercompose_path: "{{ ansible_env.HOME }}/v2ray-docker-compose-master/v2ray-bridge-server/docker-compose.yml"
 base_compose_path: "{{ ansible_env.HOME }}/v2ray-docker-compose-master"

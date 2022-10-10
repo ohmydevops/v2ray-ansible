@@ -2,7 +2,7 @@
 # tasks file for roles/hardening
 
 - name: Set timezone to Asia/Tehran
-  timezone:
+  community.general.timezone:
     name: Asia/Tehran
 
 # - name: Allow ssh ports
